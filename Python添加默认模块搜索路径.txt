@@ -1,0 +1,20 @@
+为Python添加默认模块搜索路径
+python中import外部modules时，要执行以下代码
+
+import sys;
+sys.path.append('C:\\Users\\Lenovo\\Desktop\\python\\diveintopython-examples-5.4')
+
+以下提供第二种解决办法
+在python本地路径（即/user/local/lib/python2.7/dist-packages，
+在python2.5中是site-packages文件夹，可直接在python中搜.pth文件即可）
+添加一个路径文件mypyprogram.pth，必须以.pth结尾
+在文件中写入需要import的文件的路径，如
+
+C:\\Users\\Lenovo\\Desktop\\python\\diveintopython-examples-5.4
+
+保存退出即可
+
+import sys
+
+sys.path
+['', 'C:\\Windows\\system32\\python25.zip', 'C:\\Python25\\DLLs', 'C:\\Python25\\lib', 'C:\\Python25\\lib\\plat-win', 'C:\\Python25\\lib\\lib-tk', 'C:\\Python25\\Lib\\site-packages\\pythonwin', 'C:\\Python25', 'C:\\Python25\\lib\\site-packages', 'C:\\Users\\Lenovo\\Desktop\\python\\diveintopython-examples-5.4', 'C:\\Python25\\lib\\site-packages\\win32', 'C:\\Python25\\lib\\site-packages\\win32\\lib']
