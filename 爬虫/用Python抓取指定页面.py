@@ -35,7 +35,8 @@ urllib.robotparser: RobotFileParser
 
 #直接请求
 #该方法会下载传入的网页并返回给response
-response = request.urlopen('http://baidu.com')
+url = 'http://baidu.com'
+response = request.urlopen(url)
 
 #获取状态码，如果是200表示获取成功
 print(response.getcode())
@@ -44,15 +45,12 @@ print(response.getcode())
 cont = response.read()
 print(cont)
 
-#urllib2下载网页方法2：添加data、http header
-req = request.Request('http://baidu.com')
-
-#添加数据
-req.add_data('a','1')
-#添加http的header
-req.add_header('user-Agent','Mozilla/5.0')
-
-#法师请求获取结果
-response = request.urlopen(req)
-
-print(response.getcode())
+#urlopen()简介
+#urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False)
+'''
+该函数返回一个http.client.HTTPResponse对象，
+'''
+a = request.urlopen(url)
+print(type(a))
+print(a.geturl())
+print(a.info())
