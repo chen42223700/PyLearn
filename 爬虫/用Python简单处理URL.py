@@ -1,4 +1,7 @@
-# -*- coding=utf-8 -*-
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#encoding:UTF-8
+
 import urllib
 import urllib.request
 
@@ -9,6 +12,10 @@ data = {}
 data['word'] = 'Jecvay Notes'
 
 url_values = urllib.parse.urlencode(data)
+'''
+data是一个字典, 然后通过urllib.parse.urlencode()来将data转换为 'word=Jecvay+Notes'的字符串,
+最后和url合并为full_url
+'''
 url = 'http://www.baidu.com/s?'
 full_url = url + url_values
 
@@ -32,17 +39,17 @@ Connection: close
 
 print(rsp.geturl())
 
-def unzip(data):
-    import gzip
-    # import io.StringIO
-    from io import StringIO
-    data = StringIO(data)
-    gz = gzip.GzipFile(fileobj=data)
-    data = gz.read()
-    gz.close()
-    return data
+# def unzip(data):
+#     import gzip
+#     import io
+#     # from io import StringIO
+#     data = io.StringIO(data)
+#     gz = gzip.GzipFile(fileobj=data)
+#     data = gz.read()
+#     gz.close()
+#     return data
 
-data = unzip(data)
+# data = unzip(rsp)
 
-data = data.decode("utf-8")
+data = data.decode("utf-8",'ignore')
 print(data)
