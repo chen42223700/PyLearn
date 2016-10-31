@@ -20,7 +20,12 @@ while queue:
 
     print('已经抓取：'+str(cnt)+'    正在抓取<----   '+ url)
     cnt += 1
-    urlopen = urllib.request.urlopen(url)
+    try:
+        urlopen = urllib.request.urlopen(url,timeout=2)#超市时间为2s
+    except:
+        print(url + "抓取失败！")
+        continue
+
     if 'html' not in urlopen.getheader('Content-Type'):
         continue
 
