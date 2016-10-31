@@ -1,0 +1,23 @@
+oracle导入到处时找不到exp.exe文件
+
+在安装oracle客户端时，共有三个模式，管理员模式，运行模式，和最小模式，只有选择了管理员模式才有exp和imp工具
+在选择其他模式时，就算拷贝一个工具也无法解决无法导入导出的问题
+
+要通过下述方法解决
+1.解压缩或打开Oracle客户端安装包
+2.工具在oracle.rdbms.util包里面，对应文件夹在
+oracle11G_Client(客户端包)\stage\Components\oracle.rdbms/util\11.2.0.1.0\DataFile 下
+里面可以看到一堆jar,你需要把这些jar解压缩到任意一个文件夹
+
+在文件夹中你可以看到下面几个文件和文件夹
+\bin
+\rdbms
+一堆 *.msb文件
+
+现在要做的是：
+\bin
+\rdbms
+文件夹拷贝到Oracle客户端Home目录，（正常安装的话，Home目录应该有相同名字的目录，合并文件夹就行）
+然后把 所有 *.msb 复制到Home目录下RDBMS\mesg\ 文件夹中
+
+无法导入导出的问题就解决了
